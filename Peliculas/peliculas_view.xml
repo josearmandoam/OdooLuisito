@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	 <data>
+	 	<!--  Vamos a grabar datos  -->
+	 	<record id="peliculas__modelo_tree" model="ir.ui.view">
+	 		<field name="name">peliculas.modelo.tree</field>
+	 		<field name="model">peliculas.modelo</field>
+            	<field name="arch" type="xml"> 
+            	   <tree string ="Listado de Peliculas">
+            	   	  <field name="name" />
+            	   	  <field name="categoria" />
+					   <field name="fecha" />
+            	   	 
+            	   </tree>      	
+                </field>
+	    </record>
+	   <!--  Vamos a grabar datos  -->
+	 	<record id="peliculas_modelo_form" model="ir.ui.view">
+	 		<field name="name">peliculas.modelo.form</field>
+	 		<field name="model">peliculas.modelo</field>
+            	<field name="arch" type="xml"> 
+            	   <form string ="Formulario de Peliculas" version="9.0">
+            	   	<!--  Cuerpo  -->
+            	   	<sheet>
+            	   	<group> 
+            	   		 <field name="name" />
+						  <field name="categoria" />
+						  <field name="duracion" />
+						   <field name="anotacion" />
+						   <field name="fecha" />
+            	   	     <field name="active" />                       
+            	   	</group>                 
+            	   	</sheet>
+            	   	 </form>      	
+                </field>
+	    </record>
+        <!--  Definimos los eventos -->
+        <record id="peliculas_modelo_action" model="ir.actions.act_window">
+        	<field name="name">Modelo</field>
+        	<field name="res_model">peliculas.modelo</field>
+        	<field name="view_type">form</field>
+        	<field name="view_mode">tree,form</field>
+        </record>
+        <!--  Definimos el menu-->
+        <menuitem id="peliculas_modelo_menu" name="Peliculas" />
+        <menuitem id="peliculas_modelo_submenu" name="Pelicula" parent="peliculas_modelo_menu" sequence="0" />
+
+        <!--  Enlazamos la acción al submenú-->
+        <menuitem id="peliculas_modelo_menu_action" name="Peliculas" parent="peliculas_modelo_submenu" sequence="0" action="peliculas_modelo_action"/>
+
+
+     </data>
+</openerp>
